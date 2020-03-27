@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+		<link rel="stylesheet" href="Background.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<title>Stars Wars API</title>
+	
+  <script>src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+	</head/>
+	<body> 
+	<div id="demo">
+	<h1 align="center"> Bienvenue sur Api star wars</h1>
+	
+	<p align="center"> Ecriver le nom du personnage que vous vouler et appuyer sur "générer personages et son image apparetra </p>
+	<button class="ui button"onclick="ourFunction()">Generer personnage</button>
+	<input name="choixpersonnage" id="choixpersonnage"></input>
+	
+	</div>	
+	<center>
+             <div class ="info">
+                 <div>
+                     <h5>NOM:
+                       <span class="name">Nom </span>
+                     </h5>
+                 </div>
+                 <div>
+                     <h5>Genre:
+                          <span class="gender">Genre </span>
+                     </h5>
+                 </div>
+                 <div>
+                     <h5>Taille:
+                         <span class="height">Taille </span>
+                     </h5>
+                 </div>
+                 <div>
+                     <h5>Poid:
+                         <span class="weight">Poid </span>
+                     </h5>
+                 </div>
+                 <div>
+                     <h5>Date de naissance:
+                         <span class="birth_year">Date de naissance </span>
+                     </h5>
+                 </div>
+                 <div>
+                     <h5>Cheveux:
+                         <span class="hair">Cheveux </span>
+                     </h5>
+                 </div>
+                 <div>
+                     <h5>Peau:
+                         <span class="skin">Peau</span>
+                     </h5>
+                 </div>
+                 <div>
+                     <h5>Yeux
+                         <span class="eye">Yeux </span>
+                     </h5>
+                 </div>
+              
+         </div>
+   </center>
+  
+	<script>
+
+         var name = $(".name")
+       var gender = $(".gender");
+       var height = $(".height");
+       var weight = $(".weight");
+       var birth = $(".birth_year");
+       var hair = $(".hair");
+       var skin = $(".skin");
+       var eye = $(".eye");
+  
+       function ourFunction() {
+      
+       $.getJSON(jsonUrl,parameters,myCallback)
+                               }
+  
+       var jsonUrl = "https://swapi.co/api/people/?format=json";
+       var parameters = {
+       dataType: 'json',
+                        }
+       function myCallback(json) {
+          console.log(json);
+          $(".name").text(json.results[0].name)
+          gender.text(json.results[0].gender)
+          height.text(json.results[0].height)
+          weight.text(json.results[0].mass)
+          birth.text(json.results[0].birth_year)
+          hair.text(json.results[0].hair_color)
+          skin.text(json.results[0].skin_color)
+          eye.text(json.results[0].eye_color)
+                                  }
+    </script>
+ 
+		
+
+
+	
+	</body> 
+</html/>
